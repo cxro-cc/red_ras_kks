@@ -1,0 +1,33 @@
+targets, factors
+ACE,       NFkB & !Ang17
+ACE2,      (IFNa | AT2R) & !AT1R
+ANP,       (MasR | AT2R) & (!NEP | !AT1R)
+AT1R,      AngII
+AT2R,      Ang19 | AngII
+Aldosterona,     AT1R & !ANP
+Ang17,     (Ang19 & ACE) | (ACE2 & AngII) | (NEP & AngI)
+Ang19,     AngI & ACE2
+AngI,      Renin
+AngII,     AngI & ACE & !NEP
+BDKRB1,    (IL1B & TNFa & NFkB & desArg9BK) | (IL1B & TNFa & NFkB)
+BDKRB2,    Bradykinin
+Bradykinin,      KLKB1 & !ACE
+CPN,       CPN
+ET1,       !(BDKRB1 & BDKRB2)
+FXII,      (FXII | KLKB1) & !SERPING1
+IFNa,      !IL10
+IFNG,      (IL12 | AT1R) & !IL10
+IL10,     (TNFa | AT2R) & !IFNG
+IL12,     BDKRB2 | IL1B
+IL1B,     (AT1R & NFkB)  & !IL10
+IL6,      (BDKRB2 | AT1R ) & !MasR
+KLKB1,     FXII | PRCP
+MasR,      Ang17
+NEP,       IL1B & !IFNG
+NFkB,      (IL6 | BDKRB2 | IL1B | TNFa | AT1R) & !IL10
+PGE2,       BDKRB2 & BDKRB1 
+PRCP,      AT2R
+Renin,       Renin
+SERPING1,  SERPING1
+TNFa,      !IL10
+desArg9BK, Bradykinin & CPN & !ACE2
