@@ -7,12 +7,13 @@ Este proyecto está enfocado en una red de regulación genética de tipo Boolean
 <img src="https://github.com/cxro-cc/red_ras_kks/blob/main/images/Red%20RAS%20modelo%2026.jpg">
 
 ## Proceso 
-- Red gráfica 
-- Obtención de [reglas lógicas](https://github.com/cxro-cc/red_ras_kks/blob/main/meta/red_ras.txt)
-- Obtención de [atractores](https://github.com/cxro-cc/red_ras_kks/blob/main/bin/atractores_ras.r)
+- Red de juguete 19 nodos.
+- Se obtuvieron las reglas lógicas [reglas lógicas](https://github.com/cxro-cc/red_ras_kks/blob/main/meta/red_ras.txt)
+- Se obtuvieron los atractores [atractores](https://github.com/cxro-cc/red_ras_kks/blob/main/bin/atractores_ras.r)
+ -Se evaluó la prueba de Derrida
  
 ## Pendientes  
 - [ ] Mutaciones al sistema
-- [ ] Análisis de atractores
-- [ ] Prueba de Derrida
+- [ ] Análisis de atractores obtenidos para cada mutación y sobreexpresió y combinación de moléculas.
+
   
