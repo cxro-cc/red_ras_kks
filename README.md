@@ -14,6 +14,6 @@ Este proyecto está enfocado en una red de regulación genética de tipo Boolean
  
 ## Pendientes  
 - [ ] Mutaciones al sistema
-- [ ] Análisis de atractores obtenidos para cada mutación y sobreexpresió y combinación de moléculas.
+- [ ] Análisis de atractores obtenidos para cada mutación y sobreexpresión y combinación de moléculas.
 
   
