@@ -1,28 +1,28 @@
+## Se modifica la red inicial de 32 nodos a una red de 29 nodos y se corre de manera sincróna y asincróna: 
+
 # Cargar librerías
 library(BoolNet)
 library(BoolNetPerturb)
 
 # Cargar la red 
-net_ras <-  loadNetwork(file = "red_ras_kks.txt")
+net_ras <-  loadNetwork(file = "29NODES2022.txt")
 net_ras
 
 # Obtener atractores en wild type.
-# Colocar parametros. Con parametro "sat.exhaustive" por ser una red mayor a 29 genes
+# Colocar parametros. Con parámetro "sat.exhaustive" cuando es una red mayor a 29 genes:
 # Colocar genes constitutivos
 attr.ras.wt <- getAttractors(network = net_ras, 
                              type = "synchronous",
                              method = "sat.exhaustive",
-                             genesON = c("SERPING1","Renin","CPN"))
+                             genesON = c("Renin","CPN"))
                              
 # Gráficar los atractores de la red en wild type
 plotAttractors(attractorInfo = attr.ras.wt)
 
-## Se modifica la red inicial a una red de 29 nodos y se corre de manera sincrona: (Carolina)
-
-## Red de 29 genes se corre de manera asíncrona y etiquetas de los atractores:
+## Red de 29 genes se corre de manera asíncrona y se etiquetan los atractores:
 
 ## Se corre la red de 29 genes de manera asíncrona, primero se llama a la red que se guardo previamente, en un archivo de texto con terminación txt;
-net <- loadNetwork("logicas29.txt")
+net <- loadNetwork("29NODES2022.txt")
 # Se imprime la red:
 net
 # Se fijan los genes constitutivos "CPN" &"Renin" y se imprime red:
@@ -33,10 +33,10 @@ atractor<- getAttractors(network = net, type = "asynchronous", startStates = 100
 # Se imprimen los plots de los atractores obtenidos de manera asíncrona:
 plotAttractors(atractor)
 
-## Etiquetas (labels) de los atractores de manera asíncrona:
+### Etiquetas (labels) de los atractores de manera asíncrona:
 
 # Cargar la paquetería de BoolNetPerturb si aún no se cargo en un inicio y además, se carga la paquetería de devtools. 
-# Nota; esta ultima solo se cargar una sola vez, no es necesario cargar cada vez que se abre el archivo:
+# Nota: esta ultima solo se cargar una sola vez, no es necesario cargar cada vez que se abre el archivo:
 library(BoolNetPerturb)
 library(devtools)
 # Se escriben las funciones lógicas, para cada fenotipo a estudiar en este caso tenemos los fenotipos "Hipertensión" e "Hipotensión". 
@@ -57,7 +57,7 @@ labelsObj[2]
 sapply(labelsObj,print)
 #Para etiquetar la red de manera síncrona se siguen los mismos pasos anteriores, 
 # pero se corre la red en un inicio de manera síncrona ejemplo:
-net <- loadNetwork("logicas29.txt")
+net <- loadNetwork("29NODES2022.txt")
 net
 net <- fixGenes(network = net, fixIndices = c("CPN","Renin"), values = c(1,1))
 net
