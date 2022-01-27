@@ -7,7 +7,7 @@ Este proyecto está enfocado en una red de regulación genética de tipo Boolean
 <img src="https://github.com/cxro-cc/red_ras_kks/blob/main/images/Red%20RAS%20modelo%2026.jpg">
 
 ## Proceso 
-- Red de juguete 19 nodos.
+- Red de juguete 29 nodos.
 - Se obtuvieron las reglas lógicas [reglas lógicas](https://github.com/cxro-cc/red_ras_kks/blob/main/meta/red_ras.txt)
 - Se obtuvieron los atractores [atractores](https://github.com/cxro-cc/red_ras_kks/blob/main/bin/atractores_ras.r)
  -Se evaluó la prueba de Derrida
