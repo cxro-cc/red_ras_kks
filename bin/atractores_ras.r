@@ -5,7 +5,7 @@ library(BoolNet)
 library(BoolNetPerturb)
 
 # Cargar la red 
-net_ras <-  loadNetwork(file = "29NODES2022.txt")
+net_ras <-  loadNetwork(file = "RAS292022.txt")
 net_ras
 
 # Obtener atractores en wild type.
@@ -22,7 +22,7 @@ plotAttractors(attractorInfo = attr.ras.wt)
 ## Red de 29 genes se corre de manera asíncrona y se etiquetan los atractores:
 
 ## Se corre la red de 29 genes de manera asíncrona, primero se llama a la red que se guardo previamente, en un archivo de texto con terminación txt;
-net <- loadNetwork("29NODES2022.txt")
+net <- loadNetwork("RAS292022.txt")
 # Se imprime la red:
 net
 # Se fijan los genes constitutivos "CPN" &"Renin" y se imprime red:
@@ -57,7 +57,7 @@ labelsObj[2]
 sapply(labelsObj,print)
 #Para etiquetar la red de manera síncrona se siguen los mismos pasos anteriores, 
 # pero se corre la red en un inicio de manera síncrona ejemplo:
-net <- loadNetwork("29NODES2022.txt")
+net <- loadNetwork("RAS292022.txt")
 net
 net <- fixGenes(network = net, fixIndices = c("CPN","Renin"), values = c(1,1))
 net
