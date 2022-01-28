@@ -1,7 +1,7 @@
 targets, factors
 ACE,       NFkB & !Ang17
 ACE2,      (IFNa | AT2R) & !AT1R
-ANP,       ((AT2R & (!AT1R & !NEP)) | (MasR & !NEP)) 
+ANP,       (AT2R & (!AT1R & !NEP)) | (MasR & !NEP) 
 AT1R,      AngII
 AT2R,      Ang19 | AngII
 Aldosterona, AT1R & !ANP
