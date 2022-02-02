@@ -1,1 +1,23 @@
-
+#Function that calculate the truth table from its logical function created by Biol. Arciniega
+#firts load the libraries
+library (BoolNet)
+library (tidyverse)
+#Second run the function to calculate the truth table (Biol. Arciniega)
+truth_table <- function(x) {
+  vars <- unique(unlist(strsplit(x, "[^a-zA-Z0-9]+")))
+  vars <- vars[vars != ""]
+  perm <- expand.grid(rep(list(c(FALSE, TRUE)), length(vars)))
+  names(perm) <- vars
+  perm[ , x] <- with(perm, eval(parse(text = x)))
+  perm
+}
+##Third load the file with logical fuctions:
+# Note: but, before remove the space between the word target and factors in the functions txt file.
+net <- loadNetwork("RAS292022.txt")
+boolean <- readr::read_delim(file = "RAS292022.txt")
+# To remove spaces between target and factors, write following fuction:
+factors <- str_replace_all(boolean$factors, " ", "")
+boolean_functions <- lapply(factors, truth_table)
+# continue with this function to save in a excell file and name the file:
+lapply(X = boolean_functions, function(x) write.table( as.data.frame(x), 'prueba.csv'  ,
+                                                       append= T, sep=','))
