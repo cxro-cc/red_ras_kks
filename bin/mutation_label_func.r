@@ -71,7 +71,7 @@ label_attr <- function(attractor, labels){
   #labels as csv  file
   labelsNet <- read.csv(file = labels, header = TRUE)
   labelsObj <- labelAttractors(attr =  attractor, label.rules = labelsNet, sep = "/")
-  table <- as.data.frame(attractorsToLaTeX(atractor))
+  table <- as.data.frame(attractorsToLaTeX(attractor))
   colnames(table) <- labelsObj
 }
 
