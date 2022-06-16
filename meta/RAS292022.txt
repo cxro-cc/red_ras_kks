@@ -4,7 +4,7 @@ ACE2,      (IFNa | AT2R) & !AT1R
 ANP,       (AT2R & (!AT1R & !NEP)) | (MasR & !NEP) 
 AT1R,      AngII
 AT2R,      Ang19 | AngII
-Aldosterona, AT1R & !ANP
+Aldosterone, AT1R & !ANP
 Ang17,     (Ang19 & ACE) | (ACE2 & AngII) | (NEP & AngI)
 Ang19,     AngI & ACE2
 AngI,      Renin
