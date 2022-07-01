@@ -29,7 +29,7 @@ net
 net <- fixGenes(network = net, fixIndices = c("CPN","Renin"), values = c(1,1))
 net
 ## Se corre la red de manera asíncrona, se inicia con un número de estados starStates de 100, 1000, 10,000, etc. :
-atractor<- getAttractors(network = net, type = "asynchronous", startStates = 1000)
+atractor<- getAttractors(network = net, type = "asynchronous", startStates = 10000)
 # Se imprimen los plots de los atractores obtenidos de manera asíncrona:
 plotAttractors(atractor)
 
