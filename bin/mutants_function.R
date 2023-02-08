@@ -20,13 +20,14 @@
 #
 # ========================================================================
 
-#### LIBRERIAS ####
+# LIBRERIES ----
 library(BoolNet)
 library(BoolNetPerturb)
 library(tidyverse)
 library(erer)
 
-#### FUNCIONES ####
+# FUNCTIONS ----
+## Reading data ----
 #' Upload data to get the Boolnet Network
 #' @param network file with logic rules of the net in .txt format
 #' @param labels fie with logic rules of the attractors in .csv format
@@ -38,11 +39,19 @@ data_net <- function(network, labels) {
   return(net_data)
 }
 
-# Definimos una función llamada attractors que evalua la red en modo asíncrono
-# y etiqueta los atractores obtenidos. Los parámetros que tienen que dar son:
-# bool_net = la red a analizar, labels_net = el archivo .csv con las reglas de 
-# etiquetado, geneON = sobre expresión de un gen si fuese el caso y genesOFF = 
-# pérdida de función de algún gen si fuese el caso
+
+## Getting attractors ----
+#' This function evaluates the network in the asynchronous mode for default, 
+#' it also labels the attractors.
+#' @param bool_net network from loadNetwork(), if data proceeds from "data_det" 
+#' then object$network
+#' @param labels_net labels in .csv format, if proceeds from "data_net" 
+#' then object$labels
+#' @param geneON overexpression of gene if necessary
+#' @param geneOFF knockout of gene if necessary
+#' @param type transitions in network, default "asynchronous"
+#' @param states how many states needs to evaluate
+
 attractors <- function(bool_net, labels_net, type = "asynchronous", 
                        states = 100, geneON = NULL, geneOFF = NULL) {
   
@@ -52,37 +61,36 @@ attractors <- function(bool_net, labels_net, type = "asynchronous",
                             genesON = c(geneON),
                             genesOFF = c(geneOFF))
   
-  #Etiquetado de cada atractor obtenido
+  #Labeling attractor
   labelsObj <- labelAttractors(attr = net_attr, label.rules = labels_net)
-  #Conversión de atractores a dataframe
+  #Converting attractors to dataframe
   labeled_attr <- attractorsToLaTeX(net_attr)
   labeled_attr <- as.data.frame(labeled_attr)
   
-  #Para el etiquetado de los atractores obtenidos se pueden encontrar diferentes
-  #atractores y por tanto diferentes reglas de etiquetado
-    ## Atractores completamente caóticos/complejos
+  # We can find different attractors and therefore different rules for labeling
+    ## Complex/chaotic attractors
   if (ncol(labeled_attr) == 0) {
     labeled_attr <- c("complex attractor ")
-    ## Atractores con estados estables y un atractor caótico
+    ## Steady states attractors and chaotic attractor
   } else if (ncol(labeled_attr)!= length(labelsObj)) {
     print(paste0("complex attractor ", geneON, geneOFF ) )
-    # Cambio en el nombre de las columnas omitiendo a los atractores caóticos
+    # Changing column names ignoring chaotic attractors
     colnames(labeled_attr) <- labelsObj[1:length(labeled_attr)]
-    ## Atractores con estados estables
+    ## Steady states attractors
   } else if (ncol(labeled_attr)== length(labelsObj)){
     colnames(labeled_attr) <- labelsObj
   }
   return(labeled_attr)
 }
 
-# Definimos una función llamada mutants que aplica la función attractors sobre c
-# ada elemento de la red y el resultado lo guarda en una lista. 
-# Si UP_REG = TRUE evalua las mutantes de sobre expresión
-# Si DOWN_REG = TRUE evalua las mutantes de pérdida de función
-# set_gene = nombre del gen que se quiere evaluar como constitutivo o pérdida de función entre comillas
-# gene_value = valor del gen evaluado en set_value, este valor tiene que ser 0 o 1.
-#   0 = pérdida de función
-#   1 = ganancia de función
+## Getting mutants ----
+#' It applies the attractors function on each network element and 
+#' save the result in a list
+#' @param UP_REG if TRUE it evaluates overexpression mutants
+#' @param DOWN_REG if TRUE it evaluates knockout mutants
+#' @param set_gene name of gene that is constitutive or knockout
+#' @param gene_value value of gene from set_gene, if constitutive 1, if knockout 0
+#' 
 mutants <- function(bool_net, labels_net, UP_REG = FALSE, DOWN_REG = FALSE,
                     set_gene = NULL, gene_value = NULL, states = 100) {
   bool_net <- fixGenes(network = bool_net, 
@@ -105,9 +113,4 @@ mutants <- function(bool_net, labels_net, UP_REG = FALSE, DOWN_REG = FALSE,
   }
   return(mut)
 }
-
-# Escribir la lista que regresa la función mutants en un archivo .csv
-# write.list(z = objeto_a_escribir , file = "nombre_del_archivo.csv", row.names = TRUE)
-
-
 
