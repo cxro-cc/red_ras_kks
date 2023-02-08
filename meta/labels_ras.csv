@@ -1,0 +1,5 @@
+labels, rules
+Hiper, (ACE & AT1R) | (ACE & AT1R & AngII & IFNG & BDKRB1)
+Hipo, ((ACE2 & AT2R &  IL10) & ( AngII | Ang19) & ! AT1R)
+
+
