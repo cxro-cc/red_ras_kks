@@ -20,7 +20,7 @@
 #
 # ========================================================================
 
-# LIBRERIES ----
+# LIBRARIES ----
 library(BoolNet)
 library(BoolNetPerturb)
 library(tidyverse)
