@@ -3,7 +3,7 @@
 ########################
 
 # Getting the attractors in wild type and labeling
-# Getting each attractor after the mutation of the node (KO and Gain function)
+# Getting each attractor after the mutation of each node (KO and Gain function)
 
 
 # Libraries ----
