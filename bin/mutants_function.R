@@ -30,7 +30,7 @@ library(erer)
 ## Reading data ----
 #' Upload data to get the Boolnet Network
 #' @param network file with logic rules of the net in .txt format
-#' @param labels fie with logic rules of the attractors in .csv format
+#' @param labels file with logic rules of the attractors in .csv format
 
 data_net <- function(network, labels) {
   bool_net <- loadNetwork(file = network)
@@ -43,9 +43,9 @@ data_net <- function(network, labels) {
 ## Getting attractors ----
 #' This function evaluates the network in the asynchronous mode for default, 
 #' it also labels the attractors.
-#' @param bool_net network from loadNetwork(), if data proceeds from "data_det" 
+#' @param bool_net network from loadNetwork Boolnet function. If data proceeds from data_net function 
 #' then object$network
-#' @param labels_net labels in .csv format, if proceeds from "data_net" 
+#' @param labels_net labels in .csv format. If proceeds from data_net function 
 #' then object$labels
 #' @param geneON overexpression of gene if necessary
 #' @param geneOFF knockout of gene if necessary
@@ -85,7 +85,7 @@ attractors <- function(bool_net, labels_net, type = "asynchronous",
 
 ## Getting mutants ----
 #' It applies the attractors function on each network element and 
-#' save the result in a list
+#' saves the results in a list
 #' @param UP_REG if TRUE it evaluates overexpression mutants
 #' @param DOWN_REG if TRUE it evaluates knockout mutants
 #' @param set_gene name of gene that is constitutive or knockout
