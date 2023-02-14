@@ -1,0 +1,15 @@
+Group,Letter,MonoLetter
+"(Hypertension,ACE-)",a,a          
+"(Hypertension,ACE2+)",b, b         
+"(Hypertension,ANP-)",c,  c        
+"(Hypertension,IFNG-)",a,a          
+"(Hypertension,IL10+)",a,a          
+"(Hypertension,NEP+)",a,a          
+"Hypertension,WT",d,   d       
+"(Hypotension,ACE-)",e,    e      
+"(Hypotension,ACE2+)",f,     f     
+"(Hypotension,ANP-)",g,      g    
+"(Hypotension,IFNG-)",h,       h   
+"(Hypotension,IL10+)",i,        i  
+"(Hypotension,NEP+)",j,         j 
+"Hypotension,WT",k,          k
