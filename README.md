@@ -18,7 +18,7 @@
 
 
  
-<img src="https://github.com/cxro-cc/red_ras_kks/blob/main/img/ras_net.png">
+<img src="https://github.com/cxro-cc/red_ras_kks/blob/main/img/ras_net_2023.png">
 
 
   
