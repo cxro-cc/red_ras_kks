@@ -53,7 +53,7 @@ data_net <- function(network, labels) {
 #' @param states how many states needs to evaluate
 
 attractors <- function(bool_net, labels_net, type = "asynchronous", 
-                       states = 100, geneON = NULL, geneOFF = NULL) {
+                       states = 10000, geneON = NULL, geneOFF = NULL) {
   
   net_attr <- getAttractors(network = bool_net, 
                             type = type,
